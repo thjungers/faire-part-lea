@@ -1,0 +1,396 @@
+/* screen */
+
+html, body {
+    height: 100%;
+    margin: 0;
+    background-color: #8a9b91;
+    font-size: 3vw;
+}
+
+#env-wrapper {
+    height: 100px;
+    position: relative;
+    text-align: center;
+}
+
+/* generic */
+
+.front-face, .back-face {
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    transform-style: preserve-3d;
+}
+
+/* rotate overlay */
+
+@media all and (orientation: portrait) {
+    body {
+        overflow: hidden;
+    }
+
+    #rotate-overlay {
+        display: block !important;
+        width: 100%;
+        height: 100%;
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 999;
+        background-color: white;
+    }
+
+    /*#rotate-overlay img {
+        width: 80vw;
+        height: 80vw;
+        display: block;
+        position: relative;
+        left: 50%;
+        top: 50%;
+        margin-left: -40vw;
+        margin-top: -40vw;
+    }*/
+
+    #rotate-overlay-text {
+        font-family: 'Raleway', sans-serif;
+        font-weight: bold;
+        text-align: center;
+        font-size: 3.5vw;
+        margin: 15vw 7.5vw;
+    }
+
+    #rotate-overlay-devices {
+        position: relative;
+    }
+
+    #rotate-overlay-devices img {
+        position: absolute;
+        left: 50%;
+        opacity: 0;
+    }
+
+    #rotate-overlay-devices #mobile {
+        width:  10vw;
+        margin-left: -5vw;
+        top:  2.5vw;
+    }
+
+    #rotate-overlay-devices #tablet {
+        width:  20vw;
+        margin-left: -10vw;
+    }
+}
+
+/* scroll tip */
+
+#scroll-tip {
+    position: fixed;
+    left: 50%;
+    width:  8vw;
+    margin-left: -4vw;
+    bottom: .5vw;
+    text-align: center;
+    color: #a36f39;
+    stroke: #a36f39;
+    fill: transparent;
+    z-index: 100;
+}
+
+#scroll-tip-text {
+    font-family: 'Raleway', sans-serif;
+    font-weight: bold;
+    font-size: 2.25vw;
+    margin-bottom: .5vw;
+}
+
+/* wax seal */
+
+#seal .front-face {
+    filter: drop-shadow(1px 1px 2px black);
+    display: block;
+    width: 80%;
+    height: 80%;
+    position: absolute;
+    top: 10%;
+    left: 10%;
+    box-shadow: 0 -2px 2px rgb(205 205 205 / 10%) inset, 0 3px 3px rgb(30 30 30 / 10%) inset, 0 1px 2px rgb(30 30 30 / 60%) inset;
+    border-radius: 50%;
+    background-image: linear-gradient(0deg, #8b000040, #8b000060);
+    font-family: 'Parisienne', cursive;
+    font-size: 2.5vw;
+    font-weight: bold;
+    color: goldenrod;
+}
+
+#seal {
+    z-index: 40;
+    width: 6.5vw;
+    height: 6.5vw;
+    background-color: #790000;
+    border-radius: 55% 47% 50% 45%;
+    text-align: center;
+    line-height: 6vw;
+    position: absolute;
+    box-sizing: border-box;
+    box-shadow: 0 -2px 4px rgb(0 0 0 / 20%) inset, 0 3px 3px rgb(255 255 255 / 60%) inset, 0 1px 5px rgb(0 0 0 / 80%);
+    left: 20vw;
+    margin-left: -3.25vw;
+    top: 11.5vw;
+    transform-origin: 0 -11.5vw;
+    transform-style: preserve-3d;
+}
+
+/* envelope */
+
+#envelope {
+    width:  40vw;
+    height: 25vw;
+    position: absolute;
+    top:  50vh;
+    left:  50vw;
+    margin-left: -20vw;
+    margin-top: -12.5vw;
+    perspective: 75vw;
+    background-image: url('envelope-texture.png');
+    box-shadow: 7px 7px 20px 0px rgb(0 0 0 / 50%);
+}
+
+#envelope svg {
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+}
+
+#env-flap {
+    fill: darkred;
+    transform-origin: top;
+    transform-style: preserve-3d;
+}
+
+#env-flap path {
+    filter: drop-shadow(0px -1px 1px rgba(0, 0, 0, 0.5));
+}
+
+#env-front path {
+    filter: drop-shadow(0px 1px 1px rgba(0, 0, 0, 0.5))
+}
+
+/* z-indexes */
+
+#envelope {
+    z-index: 0;
+}
+
+#card {
+    z-index: 10;
+}
+
+#env-front {
+    z-index: 20;
+}
+
+#env-flap, #seal {
+    z-index: 30;
+}
+
+/* card */
+
+#card {
+    position: absolute;
+    width: 75vw;
+    height: 22.5vw;
+    text-align: center;
+    bottom: 0;
+    left:  50%;
+    margin-left: -37.5vw;
+    perspective: 75vw;
+    font-family: 'Parisienne', cursive;
+    color: #a36f39;
+}
+
+a {
+    color:  #a36f39 !important;
+}
+
+#card .front-face .inset, #card-back, #card-left, #card-right {
+    background-image: url('paper-texture.png');
+    background-color: #dddcd8;
+    background-blend-mode: soft-light;
+}
+
+#card-back {
+    width: 50%;
+    height: 100%;
+    position: absolute;
+    left: 25%;
+}
+
+#card-left, #card-right {
+    width: 25.02%; /* slightly more than 25% to prevent a 1-pixel wide gap */
+    height: 100%;
+    position: absolute;
+    transform-style: preserve-3d;
+}
+
+#card-left {
+    left: 25%;
+    transform-origin: left;
+}
+
+#card-right {
+    left: 49.98%;
+    transform-origin: right;
+}
+
+#card .back-face {
+    transform: rotateY(180deg);
+}
+
+#card .front-face {
+    background-image: url('wallpaper.png');
+    background-size: 40vw;
+}
+
+#card-left .front-face {
+    background-position-x: -.75vw;
+}
+
+#card-right .front-face {
+    background-position-x: -19.5vw;
+}
+
+#card .front-face .inset {
+    margin-top: 2.5vw;
+    margin-bottom: 2.5vw;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    height: auto;
+    overflow: hidden;
+    font-size: .75em;
+    opacity: .9;
+    padding-top: 1vw;
+}
+
+#card-left .front-face .inset {
+    margin-left: 2.5vw;
+    text-align: right;
+}
+
+#card-right .front-face .inset {
+    margin-right: 2.5vw;
+    text-align: left;
+}
+
+#card .front-face h1 {
+    font-size: 1.333em;
+    text-align-last: justify;
+    margin-bottom: 1vw;
+}
+
+#card-left .front-face h1 {
+    margin-right: -1.35vw;
+    margin-left: 4.5vw;
+}
+
+#card-right .front-face h1 {
+    margin-left: -1.15vw;
+    margin-right: 2.75vw;
+}
+
+#card .back-face {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#card .back-face h1 {
+    margin-bottom: 0;
+    font-size: 1.2em;
+}
+
+#card .back-face h1:first-child {
+    margin-top: 0;
+}
+
+#card-back > div {
+    background-image: linear-gradient(0, rgba(255,255,255,.8), rgba(255,255,255,.8)), url("wallpaper.png");
+    background-size: 80vh;
+    margin:  5vh;
+    position: absolute;
+    top: 0;
+    left:  0;
+    right: 0;
+    bottom: 0;
+}
+
+#card-back h1 {
+    margin-top:  2vw;
+    margin-bottom: 0;
+    font-size: 300%;
+}
+
+#card-back table {
+    width:  85%;
+    margin: auto;
+}
+
+#msg-inside {
+    font-size: .5em;
+    font-family: Raleway;
+    margin-top:  1vw;
+}
+
+#card-right .back-face {
+    display:  flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+#card-right .back-face > div {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: row;
+}
+
+#card-right .back-face > div:first-child {
+    padding-top: 3.5vw;
+}
+
+#card-right .back-face > div:last-child {
+    padding-bottom: 3.5vw;
+}
+
+#card-right .back-face img {
+    width: 3.5vw;
+}
+
+#birth-time {
+    width:  11.5vw;
+    position: relative;
+    left: 1.5vw;
+}
+
+#birth-size {
+    width:  11.5vw;
+    position: relative;
+    left: -1.5vw;
+}
+
+#birth-weight {
+    width:  12.5vw;
+    position: relative;
+    left: 1.5vw;
+}
+
+#card-back, .back-face {
+    font-size: .65em;
+}

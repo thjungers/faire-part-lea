@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no" />
+    <meta name="format-detection" content="telephone=no"> <!-- Prevent Safari from tagging numbers as phone numbers -->
+    <title>Faire-part Adèle</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/smoothscroll/1.4.10/SmoothScroll.min.js" integrity="sha512-HaoDYc3PGduguBWOSToNc0AWGHBi2Y432Ssp3wNIdlOzrunCtB2qq6FrhtPbo+PlbvRbyi86dr5VQx61eg/daQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.8/ScrollMagic.min.js" integrity="sha512-8E3KZoPoZCD+1dgfqhPbejQBnQfBXe8FuwL4z/c8sTrgeDMFEnoyTlH3obB4/fV+6Sg0a0XF+L/6xS4Xx1fUEg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha512-z4OUqw38qNLpn1libAN9BsoDx6nbNFio5lA6CuTp9NlK83b89hgyCVq+N5FdBJptINztxn1Z3SaKSKUS5UP60Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="animation.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Parisienne&family=Raleway&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+    <div id="rotate-overlay" style="display: none;">
+        <div id="rotate-overlay-text">Pour afficher cette page, veuillez tourner votre appareil en mode paysage</div>
+        <div id="rotate-overlay-devices">
+            <img id="mobile" src="mobile.svg" />
+            <img id="tablet" src="tablet.svg" />
+        </div>
+    </div>
+    <div id="env-wrapper">
+        <div id="envelope">
+            <svg id="env-front" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 100 62.5">
+                <defs>
+                    <pattern id="env-texture" patternUnits="userSpaceOnUse" width="40" height="40">
+                        <image xlink:href="envelope-texture.png" x="0" y="0" width="40" height="40"/>
+                    </pattern>
+                </defs>
+                <path d="M0,0 L5,1 L50,30 L95,1 L100,0 V62.5 H0 Z" fill="url(#env-texture)"></path>
+                <path d="M0,62.5 L45,25 A8,10 0 0 1 55,25 L100,62.5" fill="url(#env-texture)" id="env-front-flap"></path>
+            </svg>
+            <svg id="env-flap" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 62.5">
+                <path d="M0,0 H100 V10 L50,40 L0,10 Z" fill="url(#env-texture)"></path>
+            </svg>
+            <div id="seal">
+                <div class="front-face">A</div>
+                <div class="back-face"></div>
+            </div>
+            <div id="card">
+                <div id="card-back">
+                    <div>
+                        <h1>Adèle</h1>
+                        Née le 37 février 2021
+                        <div id="msg-inside">
+                            Si vous souhaitez nous aider pour sa venue, vous pouvez consulter notre <a href="https://liste.dreambaby.be/list/fr/partage?l=ctBFQzwuTcVWd8TIeugYGq8wAJAu5CPUJnkROSV3Xnc=&utm_source=share&utm_medium=email&utm_campaign=dreambaby-list" target="_blank">liste de naissance</a> ou utiliser le numéro de compte BE09 3770 8478 9757.
+                        </div>
+                    </div>
+                </div>
+                <div id="card-left">
+                    <div class="back-face">
+                        <div>
+                            <h1>Marraine</h1>
+                            Odile Clamart
+                            <h1>Parrain</h1>
+                            Matthieu Lorea
+                        </div>
+                    </div>
+                    <div class="front-face">
+                        <div class="inset">
+                            <h1>Alice &</h1>
+                            sont heureux de<br>
+                            la naiss
+                        </div>
+                    </div>
+                </div>
+                <div id="card-right">
+                    <div class="back-face">
+                        <div id="birth-time">
+                            26h71
+                            <img src="leaf.svg">
+                        </div>
+                        <div id="birth-size">
+                            <img src="measuring-tape.svg">
+                            3.47 m
+                        </div>
+                        <div id="birth-weight">
+                            9.48 kg
+                            <img src="scales.svg">
+                        </div>
+                    </div>
+                    <div class="front-face">
+                        <div class="inset">
+                            <h1>& Arnaud</h1>
+                            &nbsp;vous annoncer<br>
+                            ance de
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="scroll-tip">
+        <div id="scroll-tip-text"><!--Défiler--></div>
+        <svg id="scroll-tip-arrows" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 24 20">
+            <defs>
+                <symbol id="arrow">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M19 1l-7 4-7-4" />
+                </symbol>
+            </defs>
+            <use xlink:href="#arrow" x="0" y="0"></use>
+            <use xlink:href="#arrow" x="0" y="5"></use>
+            <use xlink:href="#arrow" x="0" y="10"></use>
+        </svg>
+    </div>
+</body>
+</html>
