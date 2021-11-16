@@ -21,7 +21,6 @@ html, body {
     width: 100%;
     height: 100%;
     position: absolute;
-    -webkit-transform-style: preserve-3d;
     transform-style: preserve-3d;
 }
 
@@ -109,7 +108,6 @@ html, body {
 /* wax seal */
 
 #seal .front-face {
-    -webkit-filter: drop-shadow(1px 1px 2px black);
     filter: drop-shadow(1px 1px 2px black);
     display: block;
     width: 80%;
@@ -140,9 +138,7 @@ html, body {
     left: 20vw;
     margin-left: -3.25vw;
     top: 11.5vw;
-    -webkit-transform-origin: 0 -11.5vw;
     transform-origin: 0 -11.5vw;
-    -webkit-transform-style: preserve-3d;
     transform-style: preserve-3d;
 }
 
@@ -171,20 +167,16 @@ html, body {
 
 #env-flap {
     fill: darkred;
-    -webkit-transform-origin: top;
     transform-origin: top;
-    -webkit-transform-style: preserve-3d;
     transform-style: preserve-3d;
 }
 
 #env-flap path {
-    -webkit-filter: drop-shadow(0px -1px 1px rgba(0, 0, 0, 0.5));
     filter: drop-shadow(0px -1px 1px rgba(0, 0, 0, 0.5));
 }
 
 #env-front path {
-    -webkit-filter: drop-shadow(0px 1px 1px rgba(0, 0, 0, 0.5));
-    filter: drop-shadow(0px 1px 1px rgba(0, 0, 0, 0.5));
+    filter: drop-shadow(0px 1px 1px rgba(0, 0, 0, 0.5))
 }
 
 /* z-indexes */
@@ -241,24 +233,20 @@ a {
     width: 25.02%; /* slightly more than 25% to prevent a 1-pixel wide gap */
     height: 100%;
     position: absolute;
-    -webkit-transform-style: preserve-3d;
     transform-style: preserve-3d;
 }
 
 #card-left {
     left: 25%;
-    -webkit-transform-origin: left;
     transform-origin: left;
 }
 
 #card-right {
     left: 49.98%;
-    -webkit-transform-origin: right;
     transform-origin: right;
 }
 
 #card .back-face {
-    -webkit-transform: rotateY(180deg);
     transform: rotateY(180deg);
 }
 
