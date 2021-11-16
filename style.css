@@ -394,3 +394,21 @@ a {
 #card-back, .back-face {
     font-size: .65em;
 }
+
+/* Fixes for Safari */
+@supports (-webkit-hyphens:none) {
+    /* Hide the seal: z-index animations are bugged */
+    #seal {
+        display: none !important;
+    }
+
+    /* Repeat backface-visibility and background: parts are not displayed correctly otherwise */
+    #card-right {
+        -webkit-backface-visibility: hidden;
+    }
+    #card-right .back-face {
+        background-image: url('paper-texture.png');
+        background-color: #dddcd8;
+        background-blend-mode: soft-light;
+    }
+}
